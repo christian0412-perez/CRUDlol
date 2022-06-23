@@ -11,8 +11,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        //$users = DB::table('users')->get();
-        $users = User::all();
+        $users = DB::table('users')->get();
+        // $users = User::all();
 
         $title = 'Lista de usuarios';
 
@@ -36,20 +36,31 @@ class PageController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'name' => 'required',
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => 'required',
+            'nameChamp' => 'required',
+            'descripcion' => 'required',
+            'posicion' => 'required',
+            'rolChamp' => 'required',
+            
         ], [
-            'name.required' => 'El campo nombre es obligatorio'
+            'nameChamp.required' => 'El campo nombre es obligatorio',
+            'descripcion.required' => 'El campo descripcion es obligatorio',
+            'posicion.required' => 'El campo posicion es obligatorio',
+            'rolChamp.required' => 'El campo rol es obligatorio',
         ]);
 
-        User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password'])
+        // User::create([
+        //     'nameChamp' => $data['nameChamp'],
+        //     'descripcion' => $data['descripcion'],
+        //     'posicion' => $data['posicion'],
+        //     'rolChamp' => $data['rolChamp'],
+        // ]);
+        DB::table('champs')->insert([
+            'nameChamp' => $data['nameChamp'],
+            'descripcion' => $data['descripcion'],
+            'posicion' => $data['posicion'],
+            'rolChamp' => $data['rolChamp'],
         ]);
-
-        return redirect()->route('users.index');
+        return 'parece que todo esta bien';
     }
 
     public function edit(User $user)
