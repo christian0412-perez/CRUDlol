@@ -11,21 +11,21 @@ class PageController extends Controller
 {
     public function index()
     {
-        $users = DB::table('users')->get();
-        // $users = User::all();
+        $lol = DB::table('champs')->get();
+        //$users = User::all();
 
         $title = 'Lista de usuarios';
 
-//        return view('users.index')
-//            ->with('users', User::all())
-//            ->with('title', 'Listado de usuarios');
+        return view('users.index')
+            ->with('users', $lol)
+            ->with('title', 'Listado de usuarios');
 
-        return view('users.index', compact('title', 'users'));
+       // return view('users.index', compact('title', 'users'));
     }
 
-    public function show(User $user)
+    public function show(User $lol)
     {
-        return view('users.show', compact('user'));
+        return view('users.show', compact('champ'));
     }
 
     public function create()
