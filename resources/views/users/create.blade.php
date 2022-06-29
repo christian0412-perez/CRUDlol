@@ -19,14 +19,17 @@
     <form method="POST" action="{{ url('usuarios') }}">
         {{ csrf_field() }}
 
-        <label for="name">Nombre:</label>
-        <input type="text" name="name" id="name" placeholder="Christian Alonso" value="{{ old('name') }}">
+        <label for="nameChamp">Nombre del campeon:</label>
+        <input type="text" name="nameChamp" id="nameChamp" placeholder="ej. Nunu y Willump" value="{{ old('nameChamp') }}">
         <br>
-        <label for="email">Correo electrónico:</label>
-        <input type="email" name="email" id="email" placeholder="ejemplo@katanaenterprise" value="{{ old('email') }}">
+        <label for="descripcion">descripcion del campeon:</label>
+        <input type="text" name="descripcion" id="descripcion" placeholder="ej. un niño y su yeti" value="{{ old('descripcion') }}">
         <br>
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" id="password" placeholder="contraseña secreta jeje">
+        <label for="posicion">posicion del campeon:</label>
+        <input type="text" name="posicion" id="posicion" placeholder="ej. Jungla" value="{{ old('posicion') }}">
+        <br>
+        <label for="rolChamp">Rol del campeon:</label>
+        <input type="text" name="rolChamp" id="rolChamp" placeholder="ej. Tanque" value="{{ old('rolChamp') }}">
         <br>
         <button type="submit">Crear</button>
     </form>
