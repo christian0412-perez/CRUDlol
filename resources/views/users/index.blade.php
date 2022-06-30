@@ -5,15 +5,10 @@
 @section('content')
     <h1>{{ $title }}</h1>
     <ul>
-        @forelse ($users as $user)
+        @forelse ($users as $lol)
             <li>
-                {{ $user->name }}, ({{ $user->email }})
-                <a href="{{ route('users.show', $user) }}">Mas info del usuario</a> |
-                <a href="{{ route('users.edit', $user) }}">Editar</a> |
-                <form action="{{ route('users.destroy', $user) }}" method="POST">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button type="submit">Eliminar</button>
+                {{ $lol->nameChamp }}, ({{ $lol->posicion }})
+
                 </form>
             </li>
         @empty

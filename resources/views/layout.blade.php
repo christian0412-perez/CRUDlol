@@ -49,7 +49,7 @@
 
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">Katana Enterprise</span>
+        <span class="text-muted">ChristianPage</span>
     </div>
 </footer>
 
