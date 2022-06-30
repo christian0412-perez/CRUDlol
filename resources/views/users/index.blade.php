@@ -8,7 +8,10 @@
         @forelse ($users as $lol)
             <li>
                 {{ $lol->nameChamp }}, ({{ $lol->posicion }})
-
+                <form action="/usuarios/{$lol}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button type="submit">Eliminar</button>
                 </form>
             </li>
         @empty

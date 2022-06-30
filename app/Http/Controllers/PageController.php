@@ -14,18 +14,18 @@ class PageController extends Controller
         $lol = DB::table('champs')->get();
         //$users = User::all();
 
-        $title = 'Lista de usuarios';
+        $title = 'Lista de Campeones';
 
         return view('users.index')
             ->with('users', $lol)
-            ->with('title', 'Listado de usuarios');
+            ->with('title', 'Listado de Campeones');
 
        // return view('users.index', compact('title', 'users'));
     }
 
     public function show(User $lol)
     {
-        return view('users.show', compact('champ'));
+        return view('users.show', compact('lol'));
     }
 
     public function create()
@@ -60,7 +60,7 @@ class PageController extends Controller
             'posicion' => $data['posicion'],
             'rolChamp' => $data['rolChamp'],
         ]);
-        return 'parece que todo esta bien';
+        return redirect()->route('users.index');
     }
 
     public function edit(User $user)
@@ -87,10 +87,9 @@ class PageController extends Controller
         return redirect()->route('users.show', ['user' => $user]);
     }
 
-    function destroy(User $user)
+    function destroy(User $lol)
     {
-        $user->delete();
-
+        DB::table('champs')->delete();    
         return redirect()->route('users.index');
     }
 }
